@@ -111,7 +111,6 @@ class Chef
         require "chef/dsl/reboot_pending"
         require "chef/dsl/audit"
         require "chef/dsl/powershell"
-        require "chef/dsl/use"
         require "chef/mixin/lazy_module_include"
 
         include Chef::DSL::DataQuery
@@ -122,7 +121,6 @@ class Chef
         include Chef::DSL::RebootPending
         include Chef::DSL::Audit
         include Chef::DSL::Powershell
-        include Chef::DSL::Use
 
         extend Chef::Mixin::LazyModuleInclude
 
