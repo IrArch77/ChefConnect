@@ -26,12 +26,10 @@ require "chef/dsl/declare_resource"
 
 class Chef
   module DSL
-
     # == Chef::DSL::Recipe
     # Provides the primary recipe DSL functionality for defining Chef resource
     # objects via method calls.
     module Recipe
-
       include Chef::Mixin::ShellOut
       include Chef::Mixin::PowershellOut
 
@@ -113,6 +111,9 @@ class Chef
         require "chef/dsl/reboot_pending"
         require "chef/dsl/audit"
         require "chef/dsl/powershell"
+        require "chef/dsl/use"
+        require "chef/mixin/lazy_module_include"
+
         include Chef::DSL::DataQuery
         include Chef::DSL::PlatformIntrospection
         include Chef::DSL::IncludeRecipe
@@ -121,6 +122,10 @@ class Chef
         include Chef::DSL::RebootPending
         include Chef::DSL::Audit
         include Chef::DSL::Powershell
+        include Chef::DSL::Use
+
+        extend Chef::Mixin::LazyModuleInclude
+
       end
     end
   end
